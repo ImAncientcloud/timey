@@ -501,4 +501,27 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
+  toggleContainer: {
+    flexDirection: 'row',
+    backgroundColor: '#2a2a2a',
+    borderRadius: 12,
+    padding: 4,
+  },
+  toggleButton: {
+    flex: 1,
+    paddingVertical: 12,
+    alignItems: 'center',
+    borderRadius: 8,
+  },
+  toggleButtonActive: {
+    backgroundColor: '#007AFF',
+  },
+  toggleButtonText: {
+    color: '#999999',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  toggleButtonTextActive: {
+    color: '#FFFFFF',
+  },
 });
