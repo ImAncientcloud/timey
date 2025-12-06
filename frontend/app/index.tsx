@@ -177,6 +177,16 @@ export default function App() {
     }
   };
 
+  const toggleTimeFormat = async () => {
+    try {
+      const newFormat = !is24Hour;
+      setIs24Hour(newFormat);
+      await AsyncStorage.setItem(STORAGE_KEYS.TIME_FORMAT, newFormat ? '24' : '12');
+    } catch (error) {
+      console.error('Error saving time format:', error);
+    }
+  };
+
   const getTimeInTimezone = () => {
     const utcTime = currentTime.getTime() + currentTime.getTimezoneOffset() * 60000;
     const timezoneTime = new Date(utcTime + selectedTimezone.offset * 3600000);
