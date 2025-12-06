@@ -45,6 +45,7 @@ const TIMEZONES = [
 const STORAGE_KEYS = {
   TIMEZONE: '@timezone',
   BACKGROUND: '@background_image',
+  TIME_FORMAT: '@time_format',
 };
 
 export default function App() {
@@ -53,6 +54,7 @@ export default function App() {
   const [backgroundImage, setBackgroundImage] = useState<string | null>(null);
   const [showSettings, setShowSettings] = useState(false);
   const [tapCount, setTapCount] = useState(0);
+  const [is24Hour, setIs24Hour] = useState(true);
   const tapTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Load saved preferences
