@@ -294,6 +294,45 @@ export default function App() {
               </ScrollView>
             </View>
 
+            {/* Time Format Toggle */}
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Time Format</Text>
+              <View style={styles.toggleContainer}>
+                <TouchableOpacity
+                  style={[
+                    styles.toggleButton,
+                    !is24Hour && styles.toggleButtonActive,
+                  ]}
+                  onPress={toggleTimeFormat}
+                >
+                  <Text
+                    style={[
+                      styles.toggleButtonText,
+                      !is24Hour && styles.toggleButtonTextActive,
+                    ]}
+                  >
+                    12 Hour
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    styles.toggleButton,
+                    is24Hour && styles.toggleButtonActive,
+                  ]}
+                  onPress={toggleTimeFormat}
+                >
+                  <Text
+                    style={[
+                      styles.toggleButtonText,
+                      is24Hour && styles.toggleButtonTextActive,
+                    ]}
+                  >
+                    24 Hour
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+
             {/* Background Options */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Background</Text>
