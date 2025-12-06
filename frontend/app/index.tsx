@@ -194,10 +194,19 @@ export default function App() {
   };
 
   const formatTime = (date: Date) => {
-    const hours = String(date.getHours()).padStart(2, '0');
+    const hours24 = date.getHours();
     const minutes = String(date.getMinutes()).padStart(2, '0');
     const seconds = String(date.getSeconds()).padStart(2, '0');
-    return `${hours}:${minutes}:${seconds}`;
+    
+    if (is24Hour) {
+      const hours = String(hours24).padStart(2, '0');
+      return `${hours}:${minutes}:${seconds}`;
+    } else {
+      const hours12 = hours24 % 12 || 12;
+      const ampm = hours24 >= 12 ? 'PM' : 'AM';
+      const hours = String(hours12).padStart(2, '0');
+      return `${hours}:${minutes}:${seconds} ${ampm}`;
+    }
   };
 
   const formatDate = (date: Date) => {
