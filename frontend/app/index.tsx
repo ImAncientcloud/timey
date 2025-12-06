@@ -88,6 +88,7 @@ export default function App() {
     try {
       const savedTimezone = await AsyncStorage.getItem(STORAGE_KEYS.TIMEZONE);
       const savedBackground = await AsyncStorage.getItem(STORAGE_KEYS.BACKGROUND);
+      const savedTimeFormat = await AsyncStorage.getItem(STORAGE_KEYS.TIME_FORMAT);
 
       if (savedTimezone) {
         const timezone = JSON.parse(savedTimezone);
@@ -96,6 +97,10 @@ export default function App() {
 
       if (savedBackground) {
         setBackgroundImage(savedBackground);
+      }
+
+      if (savedTimeFormat) {
+        setIs24Hour(savedTimeFormat === '24');
       }
     } catch (error) {
       console.error('Error loading preferences:', error);
